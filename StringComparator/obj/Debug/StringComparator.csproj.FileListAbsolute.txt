@@ -1,0 +1,7 @@
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\bin\Debug\StringComparator.exe.config
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\bin\Debug\StringComparator.exe
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\bin\Debug\StringComparator.pdb
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\obj\Debug\StringComparator.csproj.AssemblyReference.cache
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\obj\Debug\StringComparator.csproj.CoreCompileInputs.cache
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\obj\Debug\StringComparator.exe
+C:\Yena\Работа\TheMostGames\Решение\StringComparator\StringComparator\obj\Debug\StringComparator.pdb
