@@ -1,0 +1,78 @@
+﻿<Window x:Class="LettersAnalyzer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LettersAnalyzer" xmlns:viewmodel="clr-namespace:LettersAnalyzer.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:TextAnalyzerViewModel}"
+        mc:Ignorable="d"
+        Title="Analyzer" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Идентфикаторы строк:"
+                           Style="{StaticResource DefaultTxb}"/>
+            <RichTextBox x:Name="TxtIdentity"
+                         Focusable="True"
+                         Style="{StaticResource DefaultTxt}">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding RowsIdentifier}"
+                             Background="{Binding IncorrectTextBackground}"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Button Style="{StaticResource DefaultBtn}"
+                    IsEnabled="{Binding IsButtonEnable}"
+                    IsDefault="True"
+                    Command="{Binding FindCurrentText}">Подсчитать</Button>
+        </StackPanel>
+        <DataGrid x:Name="GridResult"
+                  Grid.Row="1"
+                  VirtualizingPanel.ScrollUnit="Pixel"
+                  ItemsSource="{Binding DataView}"
+                  HorizontalAlignment="Center"
+                  Style="{StaticResource DefaultGrid}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Текст">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Text="{Binding TextData.Text}" 
+                                TextWrapping="Wrap"
+                                Margin="5"
+                            />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Количество слов">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Text="{Binding WordsAmount}" 
+                                TextWrapping="Wrap"
+                            />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Количество гласных">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding VowelsAmount}" 
+                                TextWrapping="Wrap"
+                            />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
